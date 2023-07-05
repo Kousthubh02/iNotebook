@@ -49,7 +49,7 @@ const Addnote = () => {
           ></textarea>
         </div>
         <div className="container d-flex justify-content-center">
-          <button className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+          <button className="btn btn-primary" onClick={handleSubmit}>Add Note</button>
         </div>
       </form>
     </div>
