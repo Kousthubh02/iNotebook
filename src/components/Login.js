@@ -25,7 +25,7 @@ const Login = () => {
     const json = await response.json();
     console.log(json);
     if (json.success) {
-      localStorage.setItem('token', json.authtoken);
+      localStorage.setItem('token', json.authToken);
       navigate("/");
     } else {
       alert('Invalid credentials');

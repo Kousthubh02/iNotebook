@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import NoteContext from '../context/notes/NoteContext';
 
-const Noteitem = ({ note, updateNote, showAlert }) => {
+const NoteItem = ({ note, updateNote, showAlert }) => {
   const context = useContext(NoteContext);
   const { deleteNote } = context;
 
@@ -11,13 +11,13 @@ const Noteitem = ({ note, updateNote, showAlert }) => {
         <h5 className="card-title">{note.title}</h5>
         <p className="card-text">{note.description}</p>
         <div className="d-flex align-items-center justify-content-center">
-          <a
+          <button
             className="btn btn-outline-warning mx-2"
             onClick={() => updateNote(note)}
           >
             <i className="fa-solid fa-pen-to-square"></i>
-          </a>
-          <a
+          </button>
+          <button
             className="btn btn-outline-danger mx-2"
             onClick={() => {
               deleteNote(note._id);
@@ -25,11 +25,11 @@ const Noteitem = ({ note, updateNote, showAlert }) => {
             }}
           >
             <i className="fa-solid fa-trash"></i>
-          </a>
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Noteitem;
+export default NoteItem;

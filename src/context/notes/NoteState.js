@@ -2,9 +2,7 @@ import { useState } from "react";
 import NoteContext from "./NoteContext";
 
 const host = "http://localhost:5000";
-const authToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRhMDIzMDUwZjIwNWM2NDI3NDhhMmY3In0sImlhdCI6MTY4ODIxNjMyNn0.66bLU2Bt_uwOQEnPZsBt2qB4Er0dCF0QkraoY4EEZls";
-
+const authToken = localStorage.getItem('token')
 const NoteState = (props) => {
   const notesInitial = [];
 
