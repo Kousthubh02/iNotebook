@@ -3,21 +3,23 @@ import NoteContext from "../context/notes/NoteContext";
 import Noteitem from "./Noteitem";
 import Addnote from "./Addnote";
 
-const Notes = () => {
-  const [note, setNote] = useState({ etitle: "", edescription: "", etag: "" });
+const Notes = ({ showAlert }) => {
+  const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" });
 
   const context = useContext(NoteContext);
-  const { notes, getNotes } = context;
+  const { notes, getNotes, editNote } = context;
 
   useEffect(() => {
     getNotes();
   }, []);
 
   const ref = useRef(null);
+  const refclose = useRef(null);
 
   const updateNote = (currentNote) => {
     ref.current.click();
     setNote({
+      id: currentNote._id,
       etitle: currentNote.title,
       edescription: currentNote.description,
       etag: currentNote.tag,
@@ -26,6 +28,13 @@ const Notes = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    editNote({
+      id: note.id,
+      title: note.etitle,
+      description: note.edescription,
+      tag: note.etag,
+    });
+    refclose.current.click();
   };
 
   const onChange = (e) => {
@@ -34,7 +43,7 @@ const Notes = () => {
 
   return (
     <>
-      <Addnote />
+      <Addnote showAlert={showAlert} />
 
       <button
         ref={ref}
@@ -79,6 +88,7 @@ const Notes = () => {
                     defaultValue={note.etitle || ""}
                     name="etitle"
                     onChange={onChange}
+                    minLength={3}
                   />
                 </div>
                 <div className="mb-3">
@@ -92,6 +102,7 @@ const Notes = () => {
                     defaultValue={note.edescription || ""}
                     name="edescription"
                     onChange={onChange}
+                    minLength={5}
                   ></textarea>
                 </div>
                 <div className="mb-3">
@@ -114,6 +125,7 @@ const Notes = () => {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
+                ref={refclose}
               >
                 Close
               </button>
@@ -126,9 +138,10 @@ const Notes = () => {
       </div>
       <div className="row my-3">
         <h2>Your notes</h2>
+        <div className="container">{notes.length === 0 && 'No notes to display'}</div>
         {notes.map((note) => {
           return (
-            <Noteitem key={note._id} updateNote={updateNote} note={note} />
+            <Noteitem showAlert={showAlert} key={note._id} updateNote={updateNote} note={note} />
           );
         })}
       </div>
@@ -137,4 +150,3 @@ const Notes = () => {
 };
 
 export default Notes;
-

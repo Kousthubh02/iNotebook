@@ -1,16 +1,11 @@
-import React  from 'react';
+import React from 'react';
 import Notes from './Notes';
 
-const Home = () => {
- 
-  
+const Home = ({ showAlert }) => {
   return (
-    <>
-      <div className='container'>
-
-      <Notes/>
-      </div>
-    </>
+    <div className='container'>
+      <Notes showAlert={showAlert} />
+    </div>
   );
 };
 
