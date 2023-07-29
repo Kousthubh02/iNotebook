@@ -43,13 +43,13 @@ const Signup = () => {
         onSubmit={handleSubmit}
         style={{ height: "100vh" }}
       >
-        <div className="container text-center py-4 shadow rounded-3" style={{ width: "fit-content" }}>
-          <h1>SignUp</h1>
+        <div className="container py-4 shadow rounded-3" style={{ width: '25rem' }}>
+          <h1 className='my-4 text-center'>SignUp</h1>
+          <label htmlFor="email" className='form-label usr'>Name:</label>
           <div className="container d-flex justify-content-center align-items-center">
-            <label htmlFor="email" className='form-label mx-2 usr'>Name</label>
             <input
               type="text"
-              className='mx-2 my-2 form-control'
+              className='mx-4 mb-2 form-control'
               value={credentials.name}
               minLength={5}
               required
@@ -58,11 +58,11 @@ const Signup = () => {
               onChange={onChange}
             />
           </div>
+            <label htmlFor="email" className='form-label usr'>Email:</label>
           <div className="container d-flex justify-content-center align-items-center">
-            <label htmlFor="email" className='form-label mx-2 usr'>Email:</label>
             <input
               type="text"
-              className='mx-2 my-2 form-control'
+              className='mx-4 my-2 form-control'
               value={credentials.email}
               required
               minLength={6}
@@ -71,11 +71,11 @@ const Signup = () => {
               onChange={onChange}
             />
           </div>
+            <label htmlFor="password" className='form-label  pass'>Password:</label>
           <div className="container d-flex justify-content-center align-items-center">
-            <label htmlFor="password" className='form-label mx-2 pass'>Password:</label>
             <input
               type="password"
-              className='mx-2 my-2 form-control'
+              className='mx-4 my-2 form-control'
               value={credentials.password}
               minLength={5}
               required
@@ -84,11 +84,11 @@ const Signup = () => {
               onChange={onChange}
             />
           </div>
+            <label htmlFor="confirmPassword" className='form-label pass'>Confirm Password:</label>
           <div className="container d-flex justify-content-center align-items-center">
-            <label htmlFor="confirmPassword" className='form-label mx-2 pass'>Confirm Password:</label>
             <input
               type="password"
-              className='mx-2 my-2 form-control'
+              className='mx-4 my-2 form-control'
               value={credentials.cpassword}
               required
               placeholder='Enter your password again'
