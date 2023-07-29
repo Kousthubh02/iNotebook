@@ -34,15 +34,15 @@ const Login = () => {
 
   return (
     <form className="container d-flex inline-block justify-content-center align-items-center" onSubmit={handleSubmit} style={{ height: "100vh" }}>
-      <div className="container text-center py-4 shadow rounded-3" style={{ width: "fit-content" }}>
-        <h1>Login</h1>
+      <div className="container py-4 shadow rounded-3" style={{ width: "fit-content" }}>
+        <h1 className='text-center my-3'>Login</h1>
+        <label htmlFor="email" className='form-label usr '>Email:</label>
         <div className="container d-flex justify-content-center align-items-center">
-          <label htmlFor="email" className='form-label mx-2 usr'>Email:</label>
-          <input type="text" className='mx-2 my-2 form-control' value={credentials.email} placeholder='Enter your email' name="email" onChange={onChange} />
+          <input type="text" className='mx-2 mb-2 form-control' value={credentials.email} placeholder='Enter your email' name="email" onChange={onChange} />
         </div>
+        <label htmlFor="password" className='form-label mt-2 pass'>Password:</label>
         <div className="container d-flex justify-content-center align-items-center">
-          <label htmlFor="password" className='form-label mx-2 pass'>Password:</label>
-          <input type="password" className='mx-2 my-2 form-control' value={credentials.password} placeholder='Enter your password' name="password" onChange={onChange} />
+          <input type="password" className='mx-2 mb-2 form-control' value={credentials.password} placeholder='Enter your password' name="password" onChange={onChange} />
         </div>
         <div className="container d-flex justify-content-center my-2">
           <button type='submit' className='btn btn-outline-primary btn-lg'>Login</button>
